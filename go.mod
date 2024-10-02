@@ -3,8 +3,9 @@ module github.com/magodo/terraform-provider-fix
 go 1.23
 
 require (
+	github.com/hashicorp/hcl/v2 v2.22.0
 	github.com/hashicorp/terraform-plugin-framework v1.12.0
-	github.com/magodo/terrafix-sdk v0.0.0
+	github.com/magodo/terrafix-sdk v0.0.0-20241001141131-8ab8a4e970a4
 )
 
 require (
@@ -17,7 +18,6 @@ require (
 	github.com/hashicorp/go-plugin v1.6.1 // indirect
 	github.com/hashicorp/go-uuid v1.0.3 // indirect
 	github.com/hashicorp/go-version v1.6.0 // indirect
-	github.com/hashicorp/hcl/v2 v2.22.0 // indirect
 	github.com/hashicorp/terraform-json v0.22.1 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.24.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
@@ -42,5 +42,3 @@ require (
 	google.golang.org/grpc v1.66.2 // indirect
 	google.golang.org/protobuf v1.34.2 // indirect
 )
-
-replace github.com/magodo/terrafix-sdk => ../terrafix-sdk

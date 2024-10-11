@@ -43,13 +43,17 @@ func (p *fixProvider) Schema(ctx context.Context, req provider.SchemaRequest, re
 func (p *fixProvider) Functions(context.Context) []func() function.Function {
 	definitionFixers := tfxsdk.DefinitionFixers{
 		tfxsdk.BlockTypeResource: {
-			"null_resource": resourcedef.NullResource,
+			"null_resource":                                    resourcedef.NullResource,
+			"azurerm_analysis_services_server":                 resourcedef.AnalysisServicesServer,
+			"azurerm_automation_software_update_configuration": resourcedef.AutomationSoftwareUpdateConfiguration,
 		},
 		tfxsdk.BlockTypeDataSource: {},
 	}
 	referenceFixers := tfxsdk.ReferenceFixers{
 		tfxsdk.BlockTypeResource: {
-			"null_resource": resourceref.NullResource,
+			"null_resource":                                    resourceref.NullResource,
+			"azurerm_analysis_services_server":                 resourceref.AnalysisServicesServer,
+			"azurerm_automation_software_update_configuration": resourceref.AutomationSoftwareUpdateConfiguration,
 		},
 		tfxsdk.BlockTypeDataSource: {},
 	}

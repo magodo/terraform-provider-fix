@@ -13,7 +13,9 @@ var AnalysisServicesServer = tfxsdk.DefinitionConfigUpgraders{
 			state, sbody, wbody := req.State, req.SyntaxBody, req.WriteBody
 
 			// enable_power_bi_service -> power_bi_service_enabled
-			wbody.SetAttributeRaw("power_bi_service_enabled", wbody.RemoveAttribute("enable_power_bi_service").Expr().BuildTokens(nil))
+			if attr := wbody.RemoveAttribute("enable_power_bi_service"); attr != nil {
+				wbody.SetAttributeRaw("power_bi_service_enabled", attr.Expr().BuildTokens(nil))
+			}
 
 			// querypool_connection_mode O+C -> O (with All as default)
 			// In case it is absent in config and its remote value not equals to "All", we'll need to explicitly set the current value learned from state.
